@@ -48,7 +48,7 @@ const dataObj = JSON.parse(fs.readFileSync('data.json', 'utf8'));
 app.get('/api', (req, res) => {
     const searchText = urlParser(decodeURI(req.url)).surname;
     const result = searchPerson(dataObj, searchText);
-    console.log(result);
+    console.log(urlParser(decodeURI(req.url)).surname);
     res.json({
         message: result
     })
