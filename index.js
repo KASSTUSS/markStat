@@ -26,26 +26,19 @@ const searchPerson = (obj, searchStr) => {
     const searchRes = new Array();
     let index = 1;
     searchStr = searchStr.charAt(0).toUpperCase() + searchStr.slice(1);
-    // obj.forEach(person => {
-    //     if(searchArr.length === 2) {
-    //         if( searchArr.includes(person.personalData.surname) && searchArr.includes(person.personalData.name) ) {
-    //             searchRes.push(person);
-    //             searchRes[index-1].id = index++;
-    //         }
-    //     } else {
-    //         if( searchArr.includes(person.personalData.surname) ) {
-    //             searchRes.push(person);
-    //             searchRes[index-1].id = index++;
-    //         }
-    //     }  
-    // });
-
     obj.forEach(person => {
-        if(person.personalData.faculty === "Факультет иностранных языков" && person.personalData.name === "Екатерина" && person.personalData.group.split("-")[1][0] == 1) {
-            searchRes.push(person);
-            searchRes[index-1].id = index++;
-        }
-    })
+        if(searchArr.length === 2) {
+            if( searchArr.includes(person.personalData.surname) && searchArr.includes(person.personalData.name) ) {
+                searchRes.push(person);
+                searchRes[index-1].id = index++;
+            }
+        } else {
+            if( searchArr.includes(person.personalData.surname) ) {
+                searchRes.push(person);
+                searchRes[index-1].id = index++;
+            }
+        }  
+    });
 
     return (searchRes.length === 0) ? false : searchRes;
 };
