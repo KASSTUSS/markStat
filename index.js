@@ -7,6 +7,11 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
+const cors = require('cors');
+app.use(cors({
+    origin: 'https://student-gsu.netlify.app'
+}));
+
 app.listen(PORT, () => {
     console.log(`SERVER IS STARTING on PORT ${PORT}`);
 });
